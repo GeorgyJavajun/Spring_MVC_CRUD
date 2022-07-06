@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:form="http://www.w3.org/1999/html">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -8,7 +8,9 @@
 <h2>User info</h2>
 <br>
 
-<form action="save_user" modelAttribute="user">
+<form action="/saveUser" modelAttribute="newUser">
+    <form hidden itemid="id"></form>
+
     <label for="name">First name:</label>
     <input type="text" id="name" name="name"/>
     <br><br>

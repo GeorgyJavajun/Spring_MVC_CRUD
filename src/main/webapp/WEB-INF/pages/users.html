@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:c="http://java.sun.com/JSP/Page">
 <head>
   <style>
     table, th, td {border: 1px solid black;}
@@ -14,14 +14,28 @@
     <th>Name</th>
     <th>LastName</th>
     <th>Age</th>
+    <th>Operations</th>
   </tr>
   </thead>
   <tbody>
+
+
   <tr th:each="user, iterStat : ${allUser}">
+
+    <a href="/editUser" name="editButton">
+      <c:param name="userId" value="${user.id}"/>
+    </a>
+
     <td th:text="${iterStat.index}+1"></td>
-    <td th:text="${user.name + ' '}"></td>
-    <td th:text="${user.lastName + ' '}"></td>
+    <td th:text="${user.name}"></td>
+    <td th:text="${user.lastName}"></td>
     <td th:text="${user.age}"></td>
+    <td>
+      <input type="button" value="edit"
+      onclick="window.location.href='${editButton}'">
+      <input type="button" value="delete">
+    </td>
+
   </tr>
   </tbody>
 </table>
