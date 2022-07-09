@@ -23,33 +23,28 @@ public class UserController {
         return "users";
     }
 
-//         ----------------------------------------------Add User----------------------------------------------     //
+//         ----------------------------------------------Add/Edit User----------------------------------------------     //
     @GetMapping("/addUser")
     public String addUser(Model model) {
         model.addAttribute("user", new User());
         return "user_info_table";
     }
 
-    @PostMapping
+
+    @GetMapping("/edit/{id}")
+    public String editUser(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("user", userService.getUserById(id));
+        return "user_info_table";
+    }
+
+
+    @PostMapping("/save")
     public String saveUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/";
     }
 //      ---------------------------------------------------------------------------------------------------------   //
 
-//      ----------------------------------------------Edit User--------------------------------------------------   //
-    @GetMapping("/edit/{id}")
-    public String editUser(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("user", userService.getUserById(id));
-        return "user_update_table";
-    }
-
-    @PostMapping("/edit")
-    public String updateUser(@ModelAttribute("user") User user) {
-        userService.editUser(user);
-        return "redirect:/";
-    }
-//    ------------------------------------------------------------------------------------------------------------   //
 
 //    ----------------------------------------------Delete User---------------------------------------------------   //
     @PostMapping("/{id}")

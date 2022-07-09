@@ -9,7 +9,8 @@
 
 <br>
 
-<form th:method="POST" th:action="@{/}" th:object="${user}">
+<form th:method="POST" th:action="@{/save}" th:object="${user}">
+    <input type="hidden" name="id" th:value="${user.getId()}"/>
 
     <label for="name">First name:</label>
     <input type="text" th:field="*{name}" id="name"/>

@@ -12,7 +12,5 @@ public interface UserDao {
 
     void deleteUser(Long id);
 
-    void editUser(User user);
-
     User getUserById(Long id);
 }

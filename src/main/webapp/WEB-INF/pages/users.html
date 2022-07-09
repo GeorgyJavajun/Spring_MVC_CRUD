@@ -29,7 +29,8 @@
     <td th:text="${user.lastName}"></td>
     <td th:text="${user.age}"></td>
 
-    <td>
+    <td >
+
 
       <a th:method="GET" th:href="@{/edit/{id}(id=${user.getId()})}" th:object="${user}">
         <input type="button" value="edit"/>

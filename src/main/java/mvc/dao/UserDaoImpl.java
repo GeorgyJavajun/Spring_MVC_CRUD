@@ -21,13 +21,10 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void saveUser(User user) { em.persist(user); }
+    public void saveUser(User user) { em.merge(user); }
 
     @Override
     public void deleteUser(Long id) { em.remove(getUserById(id)); }
-
-    @Override
-    public void editUser(User user) { em.merge(user); }
 
     @Override
     public User getUserById(Long id) { return em.find(User.class, id); }
