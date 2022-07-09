@@ -38,8 +38,10 @@ public class HibernateConfig {
         return properties;
     }
 
+
     @Bean
     public EntityManager getEntityManager(EntityManagerFactory emf) { return emf.createEntityManager(); }
+
 
     @Bean
     public DataSource dataSource() {
@@ -50,6 +52,7 @@ public class HibernateConfig {
         ds.setUrl(env.getRequiredProperty("db.url"));
         return ds;
     }
+
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {

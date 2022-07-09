@@ -19,6 +19,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     private final ApplicationContext applicationContext;
 
+
     @Autowired
     public WebConfig(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
@@ -33,6 +34,7 @@ public class WebConfig implements WebMvcConfigurer {
         templateResolver.setSuffix(".html");
         return templateResolver;
     }
+
 
     @Bean
     public SpringTemplateEngine templateEngine() {

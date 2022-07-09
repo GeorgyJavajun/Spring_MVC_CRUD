@@ -2,13 +2,10 @@ package mvc.controller;
 
 import mvc.model.User;
 import mvc.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -26,21 +23,21 @@ public class UserController {
         return "users";
     }
 
-
+//         ----------------------------------------------Add User----------------------------------------------     //
     @GetMapping("/addUser")
     public String addUser(Model model) {
         model.addAttribute("user", new User());
         return "user_info_table";
     }
 
-
     @PostMapping
     public String saveUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/";
     }
+//      ---------------------------------------------------------------------------------------------------------   //
 
-
+//      ----------------------------------------------Edit User--------------------------------------------------   //
     @GetMapping("/edit/{id}")
     public String editUser(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
@@ -52,8 +49,9 @@ public class UserController {
         userService.editUser(user);
         return "redirect:/";
     }
+//    ------------------------------------------------------------------------------------------------------------   //
 
-
+//    ----------------------------------------------Delete User---------------------------------------------------   //
     @PostMapping("/{id}")
     public String deleteUser(@PathVariable("id") Long id) {
         userService.deleteUser(id);

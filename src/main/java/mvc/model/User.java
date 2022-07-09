@@ -19,6 +19,8 @@ public class User {
     @Column(name = "Age")
     private int age;
 
+
+
     public User() { }
 
     public User(String name, String lastName, int age) {
@@ -26,6 +28,7 @@ public class User {
         this.lastName = lastName;
         this.age = age;
     }
+
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }

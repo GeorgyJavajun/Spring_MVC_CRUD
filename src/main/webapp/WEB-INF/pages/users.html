@@ -10,11 +10,13 @@
 <table>
   <thead>
   <tr>
+
     <th>ID</th>
     <th>Name</th>
     <th>LastName</th>
     <th>Age</th>
     <th>Operations</th>
+
   </tr>
   </thead>
   <tbody>
@@ -28,12 +30,15 @@
     <td th:text="${user.age}"></td>
 
     <td>
+
       <a th:method="GET" th:href="@{/edit/{id}(id=${user.getId()})}" th:object="${user}">
         <input type="button" value="edit"/>
       </a>
+
       <form th:method="POST" th:action="@{/{id}(id=${user.getId()})}">
         <input type="submit" value="Delete"/>
         </form>
+
     </td>
 
   </tr>
