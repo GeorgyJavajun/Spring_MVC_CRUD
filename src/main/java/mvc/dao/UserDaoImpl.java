@@ -1,19 +1,18 @@
 package mvc.dao;
 
 import mvc.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
 public class UserDaoImpl implements UserDao {
-    @Autowired
-    @Qualifier("getEntityManager")
-    private EntityManager em;
-
+    @PersistenceContext
+    private final EntityManager em;
+    public UserDaoImpl(@Qualifier("getEntityManager") EntityManager em) { this.em = em; }
 
 
     @Override

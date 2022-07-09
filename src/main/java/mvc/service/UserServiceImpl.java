@@ -2,7 +2,6 @@ package mvc.service;
 
 import mvc.dao.UserDao;
 import mvc.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -10,8 +9,9 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
-    UserDao userDao;
+
+    private final UserDao userDao;
+    public UserServiceImpl(UserDao userDao) { this.userDao = userDao; }
 
 
     @Transactional
